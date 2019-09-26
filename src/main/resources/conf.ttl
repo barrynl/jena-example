@@ -1,60 +1,36 @@
-# Licensed under the terms of http://www.apache.org/licenses/LICENSE-2.0
-
 @prefix : <#> .
 @prefix fuseki: <http://jena.apache.org/fuseki#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix tdb: <http://jena.hpl.hp.com/2008/tdb#> .
 @prefix ja: <http://jena.hpl.hp.com/2005/11/Assembler#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>  .
 
-[] rdf:type fuseki:Server ;
-                fuseki:services (
-                <#service1>
-                ) .
+:service1 rdf:type fuseki:Service ;
+	fuseki:name "test" ;
+	fuseki:serviceQuery "query" ; # SPARQL query service
+	fuseki:serviceUpdate "update" ;
+	fuseki:serviceUpload "upload" ; # Non-SPARQL upload service
+	fuseki:serviceReadWriteGraphStore "data" ; # SPARQL Graph store protocol (read and write)
+	# A separate read-only graph store endpoint:
+	fuseki:serviceReadGraphStore "get" ; # SPARQL Graph store protocol (read only)
+	fuseki:dataset :dataset .
 
-# Custom code.
-[] ja:loadClass "com.hp.hpl.jena.tdb.TDB" .
+:dataset rdf:type ja:RDFDataset ;
+	ja:defaultGraph :unionModel ;
+	ja:namedGraph
+        [ ja:graphName      <https://www.tno.nl/agrifood/graph/pizza/data> ;
+          ja:graph          :itemGraph ] ;
+	ja:namedGraph
+        [ ja:graphName      <https://www.tno.nl/agrifood/graph/pizza/onto> ;
+          ja:graph          :ontoGraph ] 
+     .
 
-# TDB
-tdb:DatasetTDB rdfs:subClassOf ja:RDFDataset .
-tdb:GraphTDB rdfs:subClassOf ja:Model .
+:unionModel rdf:type ja:UnionModel ;
+	ja:rootModel :itemGraph ;
+	ja:subModel :ontoGraph .
 
-## ---------------------------------------------------------------
-## Service with only SPARQL query on an inference model.
-## Inference model base data in TDB.
-
-<#service1> rdf:type fuseki:Service ;
-                fuseki:name "knowledge" ;
-                fuseki:serviceQuery "query" ; # SPARQL query service
-                fuseki:serviceUpdate "update" ;
-                fuseki:serviceUpload "upload" ; # Non-SPARQL upload service
-                fuseki:serviceReadWriteGraphStore "data" ; # SPARQL Graph store protocol (read and write)
-                # A separate read-only graph store endpoint:
-                fuseki:serviceReadGraphStore "get" ; # SPARQL Graph store protocol (read only)
-                fuseki:dataset <#dataset> .
-
-<#dataset> rdf:type ja:RDFDataset ;
-                ja:defaultGraph <#unionModel> ;
-    #set the timeout for a SPARQL query in milliseconds. 0 means no timeout and the query never times out.
-                ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "120000,240000" ] ;
-                ja:namedGraph [
-                               ja:graphName <https://www.tno.nl/agrifood/graph/pizza/onto> ;
-                               ja:graph <#ontoGraph> ;
-                ];
-                ja:namedGraph [
-                               ja:graphName <https://www.tno.nl/agrifood/graph/pizza/data> ;
-                               ja:graph <#itemGraph> ;
-                ].
-
-<#unionModel> rdf:type ja:UnionModel ;
-                ja:rootModel <#itemGraph> ;
-                ja:subModel <#ontoGraph> .
-
-<#ontoGraph> rdf:type tdb:GraphTDB ;
-                tdb:location "ontoDB" ;
-    tdb:graphName <https://www.tno.nl/agrifood/graph/pizza/onto> .
-
-<#itemGraph> rdf:type tdb:GraphTDB ;
-                tdb:location "itemDB" ;
-    tdb:graphName <https://www.tno.nl/agrifood/graph/pizza/data> .
+:itemGraph rdf:type ja:MemoryModel ;
+	ja:content [ ja:externalContent <file:src/main/resources/dummy1.ttl> ] .
+	
+:ontoGraph rdf:type ja:MemoryModel ;
+	ja:content [ ja:externalContent <file:src/main/resources/dummy2.ttl> ] .
