@@ -1,0 +1,9 @@
+@prefix testtr1: <https://www.tno.nl/test/temprule1/>
+@prefix testtr2: <https://www.tno.nl/test/temprule2/>
+@prefix test: <https://www.tno.nl/test/>
+
+[somerule1:
+	(?x test:hasValue ?y)
+<-  
+	print('somerule1')
+]

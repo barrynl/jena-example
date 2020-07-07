@@ -28,9 +28,14 @@
     .
     
 :dataset rdf:type ja:RDFDataset ;
-    ja:defaultGraph
-      [
-        a ja:MemoryModel ;
-        ja:content [ja:externalContent "data1.ttl" ] ;
-      ] ;
-    .
+    ja:defaultGraph :infGraph 
+.
+
+:infGraph rdf:type ja:InfModel ;
+             ja:reasoner [ 
+             	ja:rulesFrom <some.rules> ;
+			 ] ;
+			 ja:content :test-inf 
+.
+
+:test-inf ja:externalContent <data.ttl> .
