@@ -1,0 +1,5 @@
+@prefix test: <https://www.tno.nl/test/>
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+#test:s1 rdf:type test:Sensor .
+#test:s1 test:hasValue test:t1 .
