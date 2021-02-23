@@ -10,6 +10,8 @@ public class JenaModel {
 
 	public static void main(String[] args) {
 
+		
+		//TODO
 		Model m = ModelFactory.createDefaultModel();
 		m.read(JenaModel.class.getResourceAsStream("/data.ttl"), null, "turtle");
 
