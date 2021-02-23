@@ -1,0 +1,89 @@
+<https://www.tno.nl/kb1/meta/knowledgeinteractions/answer/act>
+        a       <https://www.tno.nl/energy/ontology/interconnect#CommunicativeAct> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasRequirement>
+                <https://www.tno.nl/kb1/meta/knowledgeinteractions/answer/act/req> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasSatisfaction>
+                <https://www.tno.nl/kb1/meta/knowledgeinteractions/answer/act/sat> .
+
+<https://www.tno.nl/kb1/meta/knowledgeinteractions/answer/act/req>
+        a       <https://www.tno.nl/energy/ontology/interconnect#InformPurpose> .
+
+<https://www.tno.nl/kb1/meta/knowledgeinteractions/ask/act>
+        a       <https://www.tno.nl/energy/ontology/interconnect#CommunicativeAct> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasRequirement>
+                <https://www.tno.nl/kb1/meta/knowledgeinteractions/ask/act/req> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasSatisfaction>
+                <https://www.tno.nl/kb1/meta/knowledgeinteractions/ask/act/sat> .
+
+<https://www.tno.nl/kb1/meta/knowledgeinteractions/answer>
+        a       <https://www.tno.nl/energy/ontology/interconnect#AnswerKnowledgeInteraction> , <https://www.tno.nl/energy/ontology/interconnect#KnowledgeInteraction> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasCommunicativeAct>
+                <https://www.tno.nl/kb1/meta/knowledgeinteractions/answer/act> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasGraphPattern>
+                <https://www.tno.nl/kb1/meta/knowledgeinteractions/answer/gp> ;
+        <https://www.tno.nl/energy/ontology/interconnect#isMeta>
+                true .
+
+<https://www.tno.nl/kb1>
+        a       <https://www.tno.nl/energy/ontology/interconnect#KnowledgeBase> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasDescription>
+                "description of kb1" ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasKnowledgeInteraction>
+                <https://www.tno.nl/kb1/interaction/d291e1c1-a636-462e-9475-42f3e717e0b1> , <https://www.tno.nl/kb1/meta/knowledgeinteractions/ask> , <https://www.tno.nl/kb1/meta/knowledgeinteractions/answer> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasName>
+                "kb1" .
+
+<https://www.tno.nl/kb1/interaction/d291e1c1-a636-462e-9475-42f3e717e0b1/act/req>
+        a       <https://www.tno.nl/energy/ontology/interconnect#InformPurpose> .
+
+<https://www.tno.nl/kb1/interaction/d291e1c1-a636-462e-9475-42f3e717e0b1/gp>
+        a       <https://www.tno.nl/energy/ontology/interconnect#GraphPattern> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasPattern>
+                "?a <https://www.tno.nl/example/b> ?c . " .
+
+<https://www.tno.nl/kb1/meta/knowledgeinteractions/ask/gp>
+        a       <https://www.tno.nl/energy/ontology/interconnect#GraphPattern> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasPattern>
+                "?kb <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.tno.nl/energy/ontology/interconnect#KnowledgeBase> . ?kb <https://www.tno.nl/energy/ontology/interconnect#hasName> ?name . ?kb <https://www.tno.nl/energy/ontology/interconnect#hasDescription> ?description . ?kb <https://www.tno.nl/energy/ontology/interconnect#hasKnowledgeInteraction> ?ki . ?ki <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?kiType . ?ki <https://www.tno.nl/energy/ontology/interconnect#isMeta> ?isMeta . ?ki <https://www.tno.nl/energy/ontology/interconnect#hasCommunicativeAct> ?act . ?act <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.tno.nl/energy/ontology/interconnect#CommunicativeAct> . ?act <https://www.tno.nl/energy/ontology/interconnect#hasRequirement> ?req . ?act <https://www.tno.nl/energy/ontology/interconnect#hasSatisfaction> ?sat . ?req <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?reqType . ?sat <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?satType . ?ki <https://www.tno.nl/energy/ontology/interconnect#hasGraphPattern> ?gp . ?ki ?patternType ?gp . ?gp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.tno.nl/energy/ontology/interconnect#GraphPattern> . ?gp <https://www.tno.nl/energy/ontology/interconnect#hasPattern> ?pattern . " .
+
+<https://www.tno.nl/kb1/meta/knowledgeinteractions/ask>
+        a       <https://www.tno.nl/energy/ontology/interconnect#AskKnowledgeInteraction> , <https://www.tno.nl/energy/ontology/interconnect#KnowledgeInteraction> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasCommunicativeAct>
+                <https://www.tno.nl/kb1/meta/knowledgeinteractions/ask/act> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasGraphPattern>
+                <https://www.tno.nl/kb1/meta/knowledgeinteractions/ask/gp> ;
+        <https://www.tno.nl/energy/ontology/interconnect#isMeta>
+                true .
+
+<https://www.tno.nl/kb1/meta/knowledgeinteractions/ask/act/sat>
+        a       <https://www.tno.nl/energy/ontology/interconnect#InformPurpose> .
+
+<https://www.tno.nl/kb1/meta/knowledgeinteractions/answer/act/sat>
+        a       <https://www.tno.nl/energy/ontology/interconnect#InformPurpose> .
+
+<https://www.tno.nl/kb1/interaction/d291e1c1-a636-462e-9475-42f3e717e0b1>
+        a       <https://www.tno.nl/energy/ontology/interconnect#AnswerKnowledgeInteraction> , <https://www.tno.nl/energy/ontology/interconnect#KnowledgeInteraction> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasCommunicativeAct>
+                <https://www.tno.nl/kb1/interaction/d291e1c1-a636-462e-9475-42f3e717e0b1/act> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasGraphPattern>
+                <https://www.tno.nl/kb1/interaction/d291e1c1-a636-462e-9475-42f3e717e0b1/gp> ;
+        <https://www.tno.nl/energy/ontology/interconnect#isMeta>
+                false .
+
+<https://www.tno.nl/kb1/interaction/d291e1c1-a636-462e-9475-42f3e717e0b1/act>
+        a       <https://www.tno.nl/energy/ontology/interconnect#CommunicativeAct> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasRequirement>
+                <https://www.tno.nl/kb1/interaction/d291e1c1-a636-462e-9475-42f3e717e0b1/act/req> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasSatisfaction>
+                <https://www.tno.nl/kb1/interaction/d291e1c1-a636-462e-9475-42f3e717e0b1/act/sat> .
+
+<https://www.tno.nl/kb1/meta/knowledgeinteractions/answer/gp>
+        a       <https://www.tno.nl/energy/ontology/interconnect#GraphPattern> ;
+        <https://www.tno.nl/energy/ontology/interconnect#hasPattern>
+                "?kb <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.tno.nl/energy/ontology/interconnect#KnowledgeBase> . ?kb <https://www.tno.nl/energy/ontology/interconnect#hasName> ?name . ?kb <https://www.tno.nl/energy/ontology/interconnect#hasDescription> ?description . ?kb <https://www.tno.nl/energy/ontology/interconnect#hasKnowledgeInteraction> ?ki . ?ki <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?kiType . ?ki <https://www.tno.nl/energy/ontology/interconnect#isMeta> ?isMeta . ?ki <https://www.tno.nl/energy/ontology/interconnect#hasCommunicativeAct> ?act . ?act <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.tno.nl/energy/ontology/interconnect#CommunicativeAct> . ?act <https://www.tno.nl/energy/ontology/interconnect#hasRequirement> ?req . ?act <https://www.tno.nl/energy/ontology/interconnect#hasSatisfaction> ?sat . ?req <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?reqType . ?sat <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?satType . ?ki <https://www.tno.nl/energy/ontology/interconnect#hasGraphPattern> ?gp . ?ki ?patternType ?gp . ?gp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.tno.nl/energy/ontology/interconnect#GraphPattern> . ?gp <https://www.tno.nl/energy/ontology/interconnect#hasPattern> ?pattern . " .
+
+<https://www.tno.nl/kb1/interaction/d291e1c1-a636-462e-9475-42f3e717e0b1/act/sat>
+        a       <https://www.tno.nl/energy/ontology/interconnect#InformPurpose> .
+
+<https://www.tno.nl/kb1/meta/knowledgeinteractions/ask/act/req>
+        a       <https://www.tno.nl/energy/ontology/interconnect#InformPurpose> .
