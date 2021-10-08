@@ -1,0 +1,21 @@
+@prefix : <https://www.tno.nl/energy/ontology/interconnect#> .
+@prefix ic:  <https://www.tno.nl/energy/ontology/interconnect#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.tno.nl/energy/ontology/interconnect> .
+
+<https://www.tno.nl/interconnect/kb1/interaction/ask/act/requirement>
+        a       ic:InformPurpose .
+
+
+<https://www.tno.nl/interconnect/kb3/interaction/answer/act/satisfaction>
+        a       ic:InformPurpose .
+
+
+:InformPurpose rdf:type owl:Class ;
+               rdfs:subClassOf :Purpose .
+
+:Purpose rdf:type owl:Class .

@@ -60,11 +60,6 @@ public class JenaIsomorphTest {
 		LOG.info("graph2: {}", graph2);
 		LOG.info("----------------------------------------");
 
-		IsoMatcher match = new IsoMatcher(tuplesTriples(graph1.find()), tuplesTriples(graph2.find()),
-				new ResultSetCompare.BNodeIso(NodeUtils.sameValue));
-
-		LOG.info("Step 3: compare the two graphs (this should be false): {}", match.match());
-
 	}
 
 	/**
